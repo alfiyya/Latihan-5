@@ -1,0 +1,255 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Implementasi Algoritma DIjakstra Dalam Menemukan Jarak Terdekat Dari Lokasi Pengguna Ke Tanaman Yang Di Tuju\\
+{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
+should not be used}
+\thanks{Identify applicable funding agency here. If none, delete this.}
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Rafli F.Amanada}
+\IEEEauthorblockA{\textit{School of Electrical and Informatics} \\
+\textit{Institut Teknologi Bandung}\\
+Bandung,Indonesia  \\
+@std.stei.itb.ac.id}
+
+
+\maketitle
+
+\begin{abstract}
+Kebun Raya Purwodadi dengan luas area sekitar 85hektar ternyata kekurangan papan informasi yang menyebabkan pengunjung kerap kali kebingungan dalam mencari lokasi tana-man tertentu. Paper ini bertujuan untuk membuat simulasi
+dari algoritma yang dapat menentukan jarak terdekat antara pengunjung (pengguna program) dengan lokasi tanaman yang dituju. Algoritma yang digunakan adalah algoritma Dijkstra yang beroperasi secara menyeluruh (greedy) untuk menguji
+setiap persimpangan (Vertex) dan jalan (Edge) pada Kebun Raya Purwodadi. Berdasarkan hasil simulasi dan pengujian, kompleksitas ruang dari program ini adalah O(V) karena adanya
+pembentukan array yang berisi V nodes untuk mencari heap min-imum. Sementara, kompleksitas waktu dari algoritma tersebut adalah O(V2).
+\end{abstract}
+
+\begin{IEEEkeywords}
+Dijakstara, \Veriex, \Edge, Tanaman 
+\end{IEEEkeywords}
+
+\section{Introduction}
+Studi mengenai penggunaan algoritma Dijkstra dalam mencari jarak terdekat dapat diimplementasikan pada kasus pencarian tanaman pada Kebun Raya Purwodadi seperti yang telah
+dilakukan oleh Yusuf et al di tahun 2017 [1]. Paper ini bertujuan untuk melakukan simulasi kembali terhadap penelitian yang telah dilakukan dengan bahasa C serta mengevaluasi
+efisiensinya melalui perhitungan kompleksitas waktu dan ruang dengan analisis Big-O. Di Kecamatan Purwodadi, Kabupaten Pasuruan, terdapat
+salah satu kebun raya di Indonesia yang bernama Kebun Raya Purwodadi yang memiliki luas area hingga 85 hektar. Kebun raya sebagai fasilitas rekreasi dan penelitian ini ternyata
+kekurangan papan informasi yang seharusnya disediakan oleh pihak pengelola. Hal ini menyebabkan banyaknya pengunjung
+yang merasa kebingungan untuk mencari lokasi dari tanaman tertentu. Oleh karena itu, Yusuf et al (2017) memutuskan
+untuk membuat suatu aplikasi dengan memanfaatkan algoritma Dijkstra untuk membantu pengunjung Kebun Raya Purwodadi dalam mencari lokasi tertentu.
+Algoritma Dijkstra digunakan karena algoritma ini dapat beroperasi secara menyeluruh (algoritma greedy) terhadap
+semua alternatif fungsi serta durasi eksekusi yang lebih cepat jika dibandingkan dengan algoritma serupa, yaitu Bellman-Ford. Algoritma ini akan mencari jalur dengan ’biaya’ atau
+\section{Studi Pustaka}
+
+\subsection{Algoritma Dijaktsara}
+Algoritma Dijkstra adalah algoritma yang digunakan untuk
+menemukan jarak jalur terpendek antara dua vertice pada
+graph berbobot dan tidak berarah sederhana [2]. Berbobot
+berarti grafik memiliki edge dengan suatu ’bobot’ atau harga.
+Bobot dapat merepresentasikan jarak, waktu, atau apapun
+yang memodelkan koneksi antara kedua node. Tidak berarah
+memiliki arti bahwa untuk setiap node yang terhubung, kita
+dapat mendekati suatu node dari kedua arah. Pendekatan Di-
+jikstra juga memiliki asumsi bahwa bobot pada edge memiliki
+nilai yang tidak negatif. Hal ini karena nilai bobot akan
+terus dibandingkan dan diambil nilai yang paling kecil. Ada
+banyak varian pada algoritma ini, namun pada percobaan
+ini digunakan varian dimana suatu node ditetapkan menjadi
+source node. Dari node inilah akan dicari jarak terpendek
+diantara node lain. Algoritma ini dicetuskan oleh Edsger
+Wybe Dijkstra, salah seorang tokoh ternama di bidang com-
+puter science [3]. Kompleksitas dari algoritma dijkstra adalah
+O(n2), dengan n menyatakan jumlah vertice dari graph yang
+bersangkutan.
+
+\subsection{ Kebun Raya Purwodadi}
+Kebun Raya Purwodadi adalah kebun penelitian di Keca-
+matan Purwodadi, Jawa Timur. Ia juga dikenal dengan nama
+Hortus Ilkim Kering Purwodadi dan didirikan tanggal 30 Jan-
+uari 1941 oleh Dr. L.G.M. Baas Becking. Sebagai cabang dari
+Kebun Raya Bogor, ia memiliki fungsi mengkoleksi tumbuhan
+yang hidup di dataran rendah kering. Sebagai Balai Konservasi
+Tumbuhan di bawah Pusat Konservasi Tumbuhan Kebun Raya,
+Kedeputian Bidang Ilmu Pengetahuan Hayati LIPI, kebun raya
+ini memiliki banyak tumbuhan yang dinaunginya. Dengan
+menggunakan algoritma Dijkstra, diharapkan ia dapat mem-
+bantu pengunjung mencari tanaman tertentu maupun jarak
+yang paling optimal
+
+\section{Metodologi Penelitian}
+Peneliti menggunakan beberapa tahap dalam penyusunan
+paper ini. Pertama, dilakukan pengkajian dan studi literatur
+dengan membaca referensi paper yang berkaitan dan memilih
+paper yang dapat menjadi acuan dalam penelitian yang di-
+lakukan, sehingga dari pilihan topik dan tema yang berkaitan
+secara luas dapat dikecilkan menjadi sebuah paper yang men-
+cakup mayoritas dari topik yang dibahas. Setelah ditemukan
+beberapa paper, dilakukan perangkuman untuk menentukan
+paper yang sesuai sekaligus membahas poin-poin penting
+dari paper yang ingin dicapai. Setelah kedua tahap tersebut
+dilewati, penentuan paper yang dijadikan prototype penelitian
+merupakan hal yang mudah dan menjadi titik pencapaian
+dalam studi literatur dan pemilihan topik dari prototype peneli-
+tian yang dilakukan.
+Setelah itu, tahap selanjutnya yang dilakukan oleh peneliti
+adalah pembuatan prototype berupa program yang ditulis
+dalam bahasa C. Pembuatan prototype berupa kode ini di-
+lakukan terus-menerus dengan menggunakan metode trial and
+error sehingga perlu dilakukan revisi hingga protoype kode
+yang dibuat dapat mendapatkan output yang optimal dan
+sesuai dengan spesifikasi yang diharapakan. Tahap terakhir dari penelitian adalah pemaparan kode yang berhasil di-
+jalankan tersebut ke dalam paper.
+
+
+
+Define abbreviations and acronyms the first time they are used in the text, 
+even after they have been defined in the abstract. Abbreviations such as 
+IEEE, SI, MKS, CGS, ac, dc, and rms do not have to be defined. Do not use 
+abbreviations in the title or heads unless they are unavoidable.
+
+
+\section{Implementasi Dan Pengujian}
+\subsection{Implementasi Graph pada Array dalam Bahasa C}
+Program akan dimulai dengan pembacaan file bernama
+listtanaman.txt. File tersebut akan menyimpan informasi men-
+genai semua nama tanaman yang bersangkutan. Setelah pem-
+bacaan tersebut, akan dicari informasi mengenai bobot graph
+yang menghubungkan node. Informasi ini disimpan di dalam
+matriks segitiga bawah kiri didalam file jarakantarpohon.txt
+yang juga dibuka saat program dijalankan. Matriks menggam-
+barkan bobot antara jarak dua node tanaman sekali saja karena
+pemodelan undirected graph yang memiliki jarak sama baik
+dari a ke b maupun b ke a. Nilai −1 akan menggambarkan
+bagian node yang tidak terhubung sama sekali dalam graph
+dan juga dinyatakan dalam suatu variabel bernama int max
+(Jaraknya sebesar tak hingga). Nilai jarak terpendek akan
+disimpan dalam array tersebut selagi program berjalan.
+
+\begin{itemize}
+\item The word ``data'' is plural, not singular.
+\item The subscript for the permeability of vacuum $\mu_{0}$, and other common scientific constants, is zero with subscript formatting, not a lowercase letter ``o''.
+\item In American English, commas, semicolons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
+\item A graph within a graph is an ``inset'', not an ``insert''. The word alternatively is preferred to the word ``alternately'' (unless you really mean something that alternates).
+\item Do not use the word ``essentially'' to mean ``approximately'' or ``effectively''.
+\item In your paper title, if the words ``that uses'' can accurately replace the word ``using'', capitalize the ``u''; if not, keep using lower-cased.
+\item Be aware of the different meanings of the homophones ``affect'' and ``effect'', ``complement'' and ``compliment'', ``discreet'' and ``discrete'', ``principal'' and ``principle''.
+\item Do not confuse ``imply'' and ``infer''.
+\item The prefix ``non'' is not a word; it should be joined to the word it modifies, usually without a hyphen.
+\item There is no period after the ``et'' in the Latin abbreviation ``et al.''.
+\item The abbreviation ``i.e.'' means ``that is'', and the abbreviation ``e.g.'' means ``for example''.
+\end{itemize}
+An excellent style manual for science writers is \cite{b7}.
+
+\subsection{Authors and Affiliations}
+\textbf{The class file is designed for, but not limited to, six authors.} A 
+minimum of one author is required for all conference articles. Author names 
+should be listed starting from left to right and then moving down to the 
+next line. This is the author sequence that will be used in future citations 
+and by indexing services. Names should not be listed in columns nor group by 
+affiliation. Please keep your affiliations as succinct as possible (for 
+example, do not differentiate among departments of the same organization).
+
+\subsection{Identify the Headings}
+Headings, or heads, are organizational devices that guide the reader through 
+your paper. There are two types: component heads and text heads.
+
+Component heads identify the different components of your paper and are not 
+topically subordinate to each other. Examples include Acknowledgments and 
+References and, for these, the correct style to use is ``Heading 5''. Use 
+``figure caption'' for your Figure captions, and ``table head'' for your 
+table title. Run-in heads, such as ``Abstract'', will require you to apply a 
+style (in this case, italic) in addition to the style provided by the drop 
+down menu to differentiate the head from the text.
+
+Text heads organize the topics on a relational, hierarchical basis. For 
+example, the paper title is the primary text head because all subsequent 
+material relates and elaborates on this one topic. If there are two or more 
+sub-topics, the next level head (uppercase Roman numerals) should be used 
+and, conversely, if there are not at least two sub-topics, then no subheads 
+should be introduced.
+
+\subsection{Figures and Tables}
+\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
+bottom of columns. Avoid placing them in the middle of columns. Large 
+figures and tables may span across both columns. Figure captions should be 
+below the figures; table heads should appear above the tables. Insert 
+figures and tables after they are cited in the text. Use the abbreviation 
+``Fig.~\ref{fig}'', even at the beginning of a sentence.
+
+\begin{table}[htbp]
+\caption{Table Type Styles}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
+\cline{2-4} 
+\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
+\hline
+copy& More table copy$^{\mathrm{a}}$& &  \\
+\hline
+\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics{fig1.png}}
+\caption{Example of a figure caption.}
+\label{fig}
+\end{figure}
+
+Figure Labels: Use 8 point Times New Roman for Figure labels. Use words 
+rather than symbols or abbreviations when writing Figure axis labels to 
+avoid confusing the reader. As an example, write the quantity 
+``Magnetization'', or ``Magnetization, M'', not just ``M''. If including 
+units in the label, present them within parentheses. Do not label axes only 
+with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization 
+\{A[m(1)]\}'', not just ``A/m''. Do not label axes with a ratio of 
+quantities and units. For example, write ``Temperature (K)'', not 
+``Temperature/K''.
+
+\section*{Acknowledgment}
+
+The preferred spelling of the word ``acknowledgment'' in America is without 
+an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
+G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
+acknowledgments in the unnumbered footnote on the first page.
+
+\section*{References}
+
+Please number citations consecutively within brackets \cite{b1}. The 
+sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
+number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
+the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
+
+Number footnotes separately in superscripts. Place the actual footnote at 
+the bottom of the column in which it was cited. Do not put footnotes in the 
+abstract or reference list. Use letters for table footnotes.
+
+Unless there are six authors or more give all authors' names; do not use 
+``et al.''. Papers that have not been published, even if they have been 
+submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
+that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
+Capitalize only the first word in a paper title, except for proper nouns and 
+element symbols.
+
+For papers published in translation journals, please give the English 
+citation first, followed by the original foreign-language citation \cite{b6}.
+
+\begin{thebibliography}{00}
+\bibitem{b1} M. S. Yusuf, H. M. Az-Zahra, and D. H. Apriyanti, “Implementasi algoritma dijkstra dalam menemukan jarak terdekat dari lokasi pengguna ke tanaman yang di tuju berbasis android (studi kasus di kebun raya pur-wodadi),” Jurnal Pengembangan Teknologi Informasi dan Ilmu Komputer e-ISSN, vol. 2548, p. 964X, 2017
+\bibitem{b2} K. H. Rosen, Discrete Mathematics and It’s Applications - Seventh Edition. McGraw-Hill.Inc, 2012.
+\bibitem{b3} E. Dijkstra, A Note on Two Problems in Connection with Graphs, 1959.
+\end{thebibliography}
+
+
+\end{document}
